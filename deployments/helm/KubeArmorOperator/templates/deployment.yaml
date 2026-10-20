@@ -44,6 +44,10 @@ spec:
       containers:
       - name: {{ .Values.kubearmorOperator.name }}
         env:
+        {{- range $key, $value := (default .Values.extraEnv (.Values.global).extraEnv) }}
+        - name: {{ $key }}
+          value: {{ $value | quote }}
+        {{- end }}
         - name: KUBEARMOR_OPERATOR_NS
           valueFrom:
             fieldRef:

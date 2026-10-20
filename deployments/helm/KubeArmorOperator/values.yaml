@@ -76,3 +76,7 @@ tlsSecrets:
   kubearmorClient: kubearmor-client-certs
   relayServer: kubearmor-relay-server-certs
   controllerWebhook: kubearmor-controller-webhook-server-cert
+
+# -- Extra environment variables (map of NAME: value) added to this chart's workloads.
+# Used only when global.extraEnv is empty; global.extraEnv takes precedence.
+extraEnv: {}
